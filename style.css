@@ -2257,3 +2257,244 @@ html {
         animation: none;
     }
 }
+
+
+
+/* MOBILE SIDEBAR NAVBAR */
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(169, 149, 255, 0.35);
+    color: #a995ff;
+    font-size: 22px;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Mobile screens */
+@media (max-width: 650px) {
+    .navbar {
+        position: sticky;
+        top: 0;
+        min-height: 70px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 12px 5%;
+        gap: 12px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 250px;
+        max-width: 85vw;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 0;
+
+        background: #141428;
+        border: 1px solid rgba(169, 149, 255, 0.25);
+        border-radius: 0 0 0 14px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateX(100%);
+        transition: transform 0.3s ease,
+                    opacity 0.3s ease,
+                    visibility 0.3s ease;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 14px 12px;
+        font-size: 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+}
+
+
+
+
+/* MOBILE ANIMATIONS */
+@media (max-width: 650px) {
+
+    /* Sidebar links one by one */
+    .nav-links.active a {
+        animation: navItemIn 0.4s ease both;
+    }
+
+    .nav-links.active a:nth-child(1) { animation-delay: 0.05s; }
+    .nav-links.active a:nth-child(2) { animation-delay: 0.10s; }
+    .nav-links.active a:nth-child(3) { animation-delay: 0.15s; }
+    .nav-links.active a:nth-child(4) { animation-delay: 0.20s; }
+    .nav-links.active a:nth-child(5) { animation-delay: 0.25s; }
+
+    /* Tap animation for links and buttons */
+    .nav-links a:active,
+    .nav-btn:active,
+    button:active {
+        transform: scale(0.96);
+    }
+
+    /* Cards tap animation */
+    .skill-card:active,
+    .project-card:active {
+        transform: scale(0.97);
+        transition: transform 0.2s ease;
+    }
+
+    /* Smooth section appearance */
+    .skill-card,
+    .project-card,
+    .about-content,
+    .contact-form,
+    .contact-info {
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+}
+
+/* Animation keyframes */
+@keyframes navItemIn {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scroll reveal initial state */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Accessibility: reduce motion if requested */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+
+
+/* NAV LINK HOVER ANIMATION */
+.nav-links a {
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #a995ff;
+    transform: translateY(-3px);
+}
+
+/* Underline animation */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #a855f7, #377bff);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* SKILLS HOVER ANIMATION */
+.skill-card {
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: #a855f7;
+    box-shadow: 0 10px 28px rgba(168, 85, 247, 0.25);
+}
+
+/* Mobile sidebar: underline remove */
+@media (max-width: 650px) {
+    .nav-links a::after {
+        display: none;
+    }
+
+    /* Touch devices par tap feedback */
+    .nav-links a:active {
+        color: #a995ff;
+        transform: scale(0.97);
+    }
+
+    .skill-card:active {
+        transform: scale(0.97);
+    }
+}
+
+/* Hover effects only on devices with a real hover cursor */
+@media (hover: hover) {
+    .nav-links a:hover {
+        color: #a995ff;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-8px) scale(1.03);
+    }
+}
+
