@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -46,8 +47,8 @@
             </div>
 
             <div class="social-links">
-                <a href="https://github.com/rehanlohar54-ui" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/rehan-lohar-67b2a4382" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="mailto:your-email@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
@@ -452,6 +453,101 @@
 
             setTimeout(autoType, 1300);
         }
+
+
+        // EMAILJS CONTACT FORM
+        const EMAILJS_PUBLIC_KEY = "KtVMycgCf3mI4oCub";
+        const EMAILJS_SERVICE_ID = "service_drsa9z9";
+        const OWNER_TEMPLATE_ID = "template_dzi9gxk";
+        const THANK_YOU_TEMPLATE_ID = "template_53gd49p";
+        const OWNER_EMAIL = "rehanlohar54@gmail.com";
+
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+
+        if (window.emailjs && contactForm && formStatus) {
+            emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+            contactForm.addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                const clientName = document.getElementById("name").value.trim();
+                const clientEmail = document.getElementById("email").value.trim();
+                const subject = document.getElementById("subject").value.trim();
+                const message = document.getElementById("message").value.trim();
+
+                if (!clientName || !clientEmail || !subject || !message) {
+                    formStatus.textContent = "Please fill in all fields.";
+                    formStatus.style.color = "#ff7777";
+                    return;
+                }
+
+                const templateParams = {
+                    client_name: clientName,
+                    client_email: clientEmail,
+                    name: clientName,
+                    email: clientEmail,
+                    from_name: clientName,
+                    from_email: clientEmail,
+                    user_name: clientName,
+                    user_email: clientEmail,
+                    subject: subject,
+                    title: subject,
+                    message: message,
+                    reply_to: clientEmail,
+                    to_email: OWNER_EMAIL
+                };
+
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.style.opacity = "0.7";
+                }
+                formStatus.textContent = "Sending your message...";
+                formStatus.style.color = "#a995ff";
+
+                try {
+                    // Send the visitor's message to the portfolio owner.
+                    await emailjs.send(EMAILJS_SERVICE_ID, OWNER_TEMPLATE_ID, {
+                        ...templateParams,
+                        to_email: OWNER_EMAIL
+                    });
+                } catch (error) {
+                    console.error("Owner email failed:", error);
+                    formStatus.textContent = "Message could not be sent: " + (error?.text || error?.message || "Please check EmailJS Service ID and owner template settings.");
+                    formStatus.style.color = "#ff7777";
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.style.opacity = "1";
+                    }
+                    return;
+                }
+
+                try {
+                    // Send a thank-you email to the visitor.
+                    await emailjs.send(EMAILJS_SERVICE_ID, THANK_YOU_TEMPLATE_ID, {
+                        ...templateParams,
+                        to_email: clientEmail
+                    });
+                    formStatus.textContent = "Message sent successfully! A confirmation email has been sent to you.";
+                    formStatus.style.color = "#7ee7a1";
+                    contactForm.reset();
+                } catch (error) {
+                    console.error("Thank-you email failed:", error);
+                    formStatus.textContent = "Your message reached Rehan, but the thank-you email failed: " + (error?.text || error?.message || "Check the thank-you template settings.");
+                    formStatus.style.color = "#ffcc80";
+                    contactForm.reset();
+                } finally {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.style.opacity = "1";
+                    }
+                }
+            });
+        } else {
+            console.error("EmailJS SDK or contact form not found. Check the EmailJS script tag and form IDs.");
+        }
+
     </script>
 </body>
 </html>
