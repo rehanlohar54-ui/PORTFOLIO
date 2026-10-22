@@ -1807,3 +1807,195 @@ body {
         scroll-behavior: auto !important;
     }
 }
+
+/* PROJECTS GRID LAYOUT */
+
+.projects-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+.projects-grid .project-card {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 100%;
+    flex: initial;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-grid .project-image {
+    width: 100%;
+    height: 135px;
+    flex-shrink: 0;
+}
+
+.projects-grid .project-info {
+    width: 100%;
+    flex: 1;
+}
+
+.projects-grid .project-info h3 {
+    overflow-wrap: anywhere;
+}
+
+.projects-grid .project-info p {
+    flex: 1;
+}
+
+.projects-grid .project-link {
+    margin-top: auto;
+}
+
+/* TABLET */
+@media (max-width: 1000px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .projects-grid .project-image {
+        height: 160px;
+    }
+}
+
+
+/* FINAL FIX: section alignment and navbar scrolling */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+#home,
+#about,
+#skills,
+#projects,
+#contact {
+    scroll-margin-top: 100px;
+}
+
+#home {
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#about,
+#skills,
+#projects,
+#contact {
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#about .about-box,
+#contact .contact-box {
+    text-align: left;
+}
+
+#about .about-box {
+    width: 100%;
+}
+
+#projects .projects-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 20px;
+}
+
+#projects .projects-grid .project-card {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 100%;
+    flex: initial;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#projects .projects-grid .project-info {
+    width: 100%;
+    flex: 1;
+}
+
+#projects .projects-grid .project-info p {
+    flex: 1;
+}
+
+#projects .projects-grid .project-link {
+    margin-top: auto;
+}
+
+#contact {
+    margin-top: 0;
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+#contact .contact-box {
+    margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+    #projects .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    html {
+        scroll-padding-top: 20px;
+    }
+
+    #home,
+    #about,
+    #skills,
+    #projects,
+    #contact {
+        min-height: auto;
+        scroll-margin-top: 20px;
+    }
+
+    #home {
+        padding-top: 45px;
+        padding-bottom: 55px;
+    }
+
+    #about,
+    #skills,
+    #projects,
+    #contact {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    #projects .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
