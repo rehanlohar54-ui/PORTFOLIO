@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RehanDev | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="#home" class="logo">Rehan<span>Dev</span></a>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#contact" class="nav-btn">Hire Me</a>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+
+            <h1>Hi, I'm <span>Rehan Lohar</span></h1>
+            <h2>Frontend Developer</h2>
+
+            <p class="hero-description">
+                I create responsive and user-friendly websites using modern
+                web technologies. I enjoy learning new skills and building projects.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="primary-btn">View Projects <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#contact" class="secondary-btn">Contact Me</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:your-email@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="photo-glow"></div>
+            <img src="img-2.jpeg" alt="Rehan Lohar" class="profile-photo">
+
+            <div class="floating-card card-one">
+                <i class="fa-solid fa-code"></i>
+                <span>Frontend Developer</span>
+            </div>
+
+            <div class="floating-card card-two">
+                <i class="fa-solid fa-laptop-code"></i>
+                <span>Web Projects</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <p class="section-label">GET TO KNOW ME</p>
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <div class="about-box">
+            <div class="about-icon"><i class="fa-solid fa-user"></i></div>
+
+            <div class="about-content">
+                <h3>I'm Rehan Lohar</h3>
+                <p>
+                    I am a Computer Science Engineering student passionate about
+                    frontend development. I enjoy creating responsive websites
+                    and improving my coding skills by building practical projects.
+                </p>
+
+                <div class="about-details">
+                    <p><i class="fa-solid fa-location-dot"></i> Nandurbar, Maharashtra</p>
+                    <p><i class="fa-solid fa-graduation-cap"></i> B.Tech CSE — 3rd Year</p>
+                    <p><i class="fa-solid fa-code"></i> Frontend Development</p>
+                    <p><i class="fa-solid fa-envelope"></i> your-email@example.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+        <p class="section-label">WHAT I KNOW</p>
+        <h2 class="section-title">My <span>Skills</span></h2>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-brands fa-html5 html-icon"></i>
+                <h3>HTML5</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-css3-alt css-icon"></i>
+                <h3>CSS3</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-bootstrap bootstrap-icon"></i>
+                <h3>Bootstrap</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-js js-icon"></i>
+                <h3>JavaScript</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-react react-icon"></i>
+                <h3>React</h3>
+            </div>
+
+            <div class="skill-card">
+                <i class="fa-brands fa-github github-icon"></i>
+                <h3>GitHub</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SLIDER -->
+    <section id="projects" class="section projects-section">
+        <p class="section-label">MY RECENT WORK</p>
+        <h2 class="section-title">My <span>Projects</span></h2>
+        <p class="section-subtitle">Explore my projects using the slider below.</p>
+
+        <div class="project-slider">
+            <button class="slide-btn" id="prevBtn" aria-label="Previous project">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="projects-window">
+                <div class="projects-track" id="projectsTrack">
+
+                    <!-- PROJECT 1 -->
+                    <article class="project-card">
+                        <div class="project-image store-image">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-number">PROJECT 01</span>
+                            <h3>RehanStore</h3>
+                            <p>A stylish e-commerce website featuring products and a responsive layout.</p>
+                            <div class="project-tags">
+                                <span>HTML</span><span>CSS</span><span>Bootstrap</span>
+                            </div>
+                            <a href="https://rehanlohar54-ui.github.io/RehanStore/" class="project-link">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 2 -->
+                    <article class="project-card">
+                        <div class="project-image portfolio-image">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-number">PROJECT 02</span>
+                            <h3>Amazon-clone-website</h3>
+                            <p>A amazo-clone-website to showcase my skills, work and contact information.</p>
+                            <div class="project-tags">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                            </div>
+                            <a href="https://amazon-web-mu.vercel.app/" class="project-link">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 3 -->
+                    <article class="project-card">
+                        <div class="project-image calculator-image">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-number">PROJECT 03</span>
+                            <h3>Calculator</h3>
+                            <p>A simple calculator project with an interactive interface and basic operations.</p>
+                            <div class="project-tags">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                            </div>
+                            <a href="https://rehanlohar54-ui.github.io/CALCULATOR/" class="project-link">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT 4 -->
+                    <article class="project-card">
+                        <div class="project-image gym-image">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-number">PROJECT 04</span>
+                            <h3>Login&Signup</h3>
+                            <p>A modern login & signup website concept with userlogin information and an attractive layout.</p>
+                            <div class="project-tags">
+                                <span>HTML</span><span>CSS</span><span>Bootstrap</span>
+                            </div>
+                            <a href="https://login-signup-project-eta.vercel.app" class="project-link">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <button class="slide-btn" id="nextBtn" aria-label="Next project">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="slider-footer">
+            <div class="slider-dots" id="sliderDots"></div>
+            <p id="slideCounter">01 / 04</p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <!-- CONTACT -->
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="section">
+
+    <div class="contact-box">
+
+        <!-- LEFT SIDE -->
+        <div class="contact-info">
+
+            <div class="contact-icon">
+                <i class="fa-solid fa-paper-plane"></i>
+            </div>
+
+            <h3>Let's Work Together</h3>
+
+            <p>
+                Have a project or opportunity?
+                Let's connect and build something great together!
+            </p>
+
+            <div class="contact-socials">
+                <a href="https://github.com/" target="_blank"
+                   rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/" target="_blank"
+                   rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+
+                <a href="mailto:your-email@example.com"
+                   aria-label="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE FORM -->
+        <form class="contact-form" id="contactForm">
+
+            <div class="input-row">
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                >
+            </div>
+
+            <input
+                type="text"
+                id="subject"
+                placeholder="Subject"
+                required
+            >
+
+            <textarea
+                id="message"
+                rows="3"
+                placeholder="Your Message..."
+                required
+            ></textarea>
+
+            <button type="submit" class="primary-btn">
+                Send Message
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <p id="formStatus" class="form-status"
+               aria-live="polite"></p>
+
+        </form>
+
+    </div>
+
+</section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <a href="#home" class="logo">Rehan<span>Dev</span></a>
+        <p>Designed and built by Rehan Lohar</p>
+        <p class="copyright">© 2026 RehanDev. All rights reserved.</p>
+    </footer>
+
+    
+
+    <script>
+        // PROJECT SLIDER
+        const track = document.getElementById("projectsTrack");
+        const cards = Array.from(track.querySelectorAll(".project-card"));
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const dotsContainer = document.getElementById("sliderDots");
+        const counter = document.getElementById("slideCounter");
+
+        let currentIndex = 0;
+
+        cards.forEach((card, index) => {
+            const dot = document.createElement("button");
+            dot.className = "slider-dot";
+            dot.setAttribute("aria-label", "Show project " + (index + 1));
+            dot.addEventListener("click", () => showProject(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = Array.from(dotsContainer.querySelectorAll(".slider-dot"));
+
+        function showProject(index) {
+            currentIndex = (index + cards.length) % cards.length;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === currentIndex);
+            });
+
+            counter.textContent =
+                String(currentIndex + 1).padStart(2, "0") +
+                " / " +
+                String(cards.length).padStart(2, "0");
+        }
+
+        nextBtn.addEventListener("click", () => showProject(currentIndex + 1));
+        prevBtn.addEventListener("click", () => showProject(currentIndex - 1));
+
+        // Arrow-key navigation while using the slider
+        document.querySelector(".project-slider").addEventListener("keydown", (event) => {
+            if (event.key === "ArrowRight") showProject(currentIndex + 1);
+            if (event.key === "ArrowLeft") showProject(currentIndex - 1);
+        });
+
+        showProject(0);
+
+        // Smooth navigation with sticky navbar offset
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener("click", event => {
+                const target = document.querySelector(link.getAttribute("href"));
+                if (!target) return;
+
+                event.preventDefault();
+                const navbar = document.querySelector(".navbar");
+                const top = target.getBoundingClientRect().top +
+                    window.scrollY -
+                    navbar.offsetHeight - 12;
+
+                window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+            });
+        });
+
+        /* AUTOMATIC SCROLL REVEAL */
+const revealElements = document.querySelectorAll(
+    "#about .about-box, #skills .skill-card, #projects .project-slider, #contact .contact-box, .section-label, .section-title"
+);
+
+revealElements.forEach((element, index) => {
+    element.classList.add("reveal");
+
+    if (element.classList.contains("skill-card")) {
+        element.style.transitionDelay = `${(index % 6) * 100}ms`;
+    }
+});
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        } else {
+            entry.target.classList.remove("show");
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+revealElements.forEach((element) => {
+    revealObserver.observe(element);
+});
+
+
+// Home Text Auto Typing
+
+const homeText = document.querySelector(".hero-content h2");
+
+const words = [
+    "Frontend Developer",
+    "Web Developer",
+    "JavaScript Learner",
+    "React Developer"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function autoType() {
+    const word = words[wordIndex];
+
+    homeText.textContent = word.substring(0, charIndex);
+
+    if (!deleting) {
+        charIndex++;
+
+        if (charIndex > word.length) {
+            deleting = true;
+            setTimeout(autoType, 1000);
+            return;
+        }
+    } else {
+        charIndex--;
+
+        if (charIndex < 0) {
+            charIndex = 0;
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+    }
+
+    setTimeout(autoType, deleting ? 50 : 100);
+}
+
+if (homeText) {
+    autoType();
+}
+    </script>
+</body>
+</html>
